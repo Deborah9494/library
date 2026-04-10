@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Book{% endblock %}
+
+{% block body %}
+
+<div class="container mt-4">
+
+    <h1>Edit Book</h1>
+
+    <form method="POST">
+
+        <div class="mb-3">
+            <label>Title</label>
+            <input type="text" name="bookName" class="form-control"
+                   value="{{ book.bookName }}">
+        </div>
+
+        <div class="mb-3">
+            <label>ISBN</label>
+            <input type="text" name="isbn13" class="form-control"
+                   value="{{ book.isbn13 }}">
+        </div>
+
+        <div class="mb-3">
+            <label>Publication Date</label>
+            <input type="date" name="publicationDate" class="form-control"
+                   value="{{ book.publicationDate|date('Y-m-d') }}">
+        </div>
+
+        <div class="mb-3">
+            <label>Summary</label>
+            <textarea name="summary" class="form-control">{{ book.summary }}</textarea>
+        </div>
+
+        <button class="btn btn-success">Save</button>
+        <a href="{{ path('book_detail', {id: book.id}) }}" class="btn btn-secondary">
+            Cancel
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}
